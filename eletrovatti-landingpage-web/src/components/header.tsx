@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { MagneticWrapper } from "@/components/magnetic-wrapper";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -13,36 +14,44 @@ const navLinks = [
   { href: "#unidades", label: "Unidades" },
   { href: "#orcamento", label: "Orçamento" },
   { href: "#contato", label: "Contato" },
-]
+];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg" : "bg-transparent",
+        scrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
+          : "bg-transparent",
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-28">
-          <Link href="/" className="flex-shrink-0 transition-transform hover:scale-105">
+          <Link
+            href="/"
+            className="flex-shrink-0 transition-transform hover:scale-105"
+          >
             <Image
               src="/images/logo-preto.webp"
               alt="Grupo Eletrovatti"
               width={180}
               height={50}
-              className={cn("h-10 md:h-20 w-auto", !scrolled ? "brightness-0 invert" : "")}
+              className={cn(
+                "h-10 md:h-20 w-auto",
+                !scrolled ? "brightness-0 invert" : "",
+              )}
             />
           </Link>
 
@@ -53,7 +62,9 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors relative group",
-                  scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/90 hover:text-white",
+                  scrolled
+                    ? "text-slate-600 hover:text-slate-900"
+                    : "text-white/90 hover:text-white",
                 )}
               >
                 {link.label}
@@ -63,12 +74,14 @@ export function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
-            >
-              <Link href="#orcamento">Solicitar Orçamento</Link>
-            </Button>
+            <MagneticWrapper>
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+              >
+                <Link href="#orcamento">Solicitar Orçamento</Link>
+              </Button>
+            </MagneticWrapper>
           </div>
 
           <button
@@ -79,7 +92,11 @@ export function Header() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -102,7 +119,10 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground mt-2">
+          <Button
+            asChild
+            className="bg-primary hover:bg-primary/90 text-primary-foreground mt-2"
+          >
             <Link href="#orcamento" onClick={() => setMobileMenuOpen(false)}>
               Solicitar Orçamento
             </Link>
@@ -110,5 +130,5 @@ export function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }

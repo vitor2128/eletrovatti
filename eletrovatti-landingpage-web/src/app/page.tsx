@@ -18,6 +18,9 @@ const ABBPartner = dynamic(() => import("@/components/abb-partner").then(mod => 
 const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), {
   loading: () => <div className="py-20" />,
 })
+const SacSection = dynamic(() => import("@/components/sac").then(mod => mod.SacSection), {
+  loading: () => <div className="py-20 bg-slate-50" />,
+})
 
 export default function Home() {
   return (
@@ -29,6 +32,7 @@ export default function Home() {
       <UrgentBanner />
       <Locations />
       <ABBPartner />
+      <SacSection />
       <ContactForm />
       <Footer />
     </main>

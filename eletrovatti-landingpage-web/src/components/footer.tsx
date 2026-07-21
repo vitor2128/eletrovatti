@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Instagram, Facebook, Linkedin, ArrowUp } from "lucide-react"
-import { useParallax } from "@/hooks/use-parallax"
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUp } from "lucide-react";
+import { useParallax } from "@/hooks/use-parallax";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -11,14 +12,14 @@ const navLinks = [
   { href: "#unidades", label: "Unidades" },
   { href: "#orcamento", label: "Orçamento" },
   { href: "#contato", label: "Contato" },
-]
+];
 
 export function Footer() {
-  const scrollY = useParallax()
+  const scrollY = useParallax();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer id="contato" className="bg-accent relative overflow-hidden">
@@ -33,21 +34,33 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <div className="lg:col-span-2 space-y-4">
             <Image
-              src="/images/logo-preto.webp"
+              src="/images/logo-branco.png"
               alt="Grupo Eletrovatti"
               width={180}
               height={50}
-              className="h-12 w-auto brightness-0 invert transition-transform hover:scale-105"
+              className="h-24 w-auto   hover:scale-105"
             />
             <p className="text-accent-muted max-w-md leading-relaxed">
-              Há mais de 30 anos oferecendo soluções em motores elétricos para todo o Brasil. Assistência técnica
-              autorizada ABB.
+              Há mais de 30 anos oferecendo soluções em motores elétricos para
+              todo o Brasil. Assistência técnica autorizada ABB.
             </p>
             <div className="flex items-center gap-4 pt-2">
               {[
-                { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-                { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/eletrovatti_motores/",
+                  label: "Instagram",
+                },
+                {
+                  icon: FaFacebook,
+                  href: "https://www.facebook.com/eletrovatti/",
+                  label: "Facebook",
+                },
+                {
+                  icon: FaLinkedin,
+                  href: "https://www.linkedin.com/company/eletrovatti-maquinas-de-solda",
+                  label: "LinkedIn",
+                },
               ].map((social) => (
                 <Link
                   key={social.label}
@@ -82,9 +95,15 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Contato</h3>
             <ul className="space-y-3 text-sm text-accent-muted">
-              <li className="hover:text-primary transition-colors cursor-pointer">(16) 3382-4034</li>
-              <li className="hover:text-primary transition-colors cursor-pointer">vendas@eletrovatti.com.br</li>
-              <li className="hover:text-primary transition-colors cursor-pointer">eletrovatti.com.br</li>
+              <li className="hover:text-primary transition-colors cursor-pointer">
+                (16) 3382-4034
+              </li>
+              <li className="hover:text-primary transition-colors cursor-pointer">
+                vendas@eletrovatti.com.br
+              </li>
+              <li className="hover:text-primary transition-colors cursor-pointer">
+                eletrovatti.com.br
+              </li>
               <li className="pt-2 text-white/80">
                 Rua São Lourenço, 2270
                 <br />
@@ -96,10 +115,13 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-accent-muted">
-            © {new Date().getFullYear()} Grupo Eletrovatti. Todos os direitos reservados.
+            © {new Date().getFullYear()} Grupo Eletrovatti. Todos os direitos
+            reservados.
           </p>
           <div className="flex items-center gap-4">
-            <p className="text-sm text-accent-muted">Assistência Técnica Autorizada ABB</p>
+            <p className="text-sm text-accent-muted">
+              Assistência Técnica Autorizada ABB
+            </p>
             <button
               onClick={scrollToTop}
               className="w-10 h-10 bg-primary/20 hover:bg-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group"
@@ -111,5 +133,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -3,6 +3,7 @@
 import { MapPin, Phone, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedSection } from "@/components/animated-section";
+import { GlowCard } from "@/components/glow-card";
 import { useParallax } from "@/hooks/use-parallax";
 
 const locations = [
@@ -69,8 +70,8 @@ export function Locations() {
               animation="slide-up"
               delay={index * 150}
             >
-              <Card className="bg-card border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 group h-full">
-                <CardContent className="p-6">
+              <GlowCard className="bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 group h-full rounded-xl">
+                <CardContent className="p-6 relative z-10">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                       {location.city}
@@ -101,7 +102,7 @@ export function Locations() {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </GlowCard>
             </AnimatedSection>
           ))}
         </div>

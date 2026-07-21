@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import { Phone, Zap } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { AnimatedSection } from "./animated-section"
+import { Phone, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { AnimatedSection } from "./animated-section";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function UrgentBanner() {
   return (
@@ -17,7 +18,9 @@ export function UrgentBanner() {
         <AnimatedSection animation="slide-up">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Precisa de um serviço urgente?</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                Precisa de um serviço urgente?
+              </h3>
               <p className="text-white/90 text-sm md:text-base">
                 Entre em contato agora mesmo para um atendimento rápido
               </p>
@@ -42,8 +45,12 @@ export function UrgentBanner() {
                 className="border-2 border-white text-primary bg-white hover:bg-white/90 hover:text-primary font-semibold gap-2 px-6"
                 asChild
               >
-                <a href="https://wa.me/5516999934934" target="_blank" rel="noopener noreferrer">
-                  <Zap className="w-5 h-5" />
+                <a
+                  href="https://wa.me/5516999934934"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaWhatsapp className="w-5 h-5" />
                   Fale pelo WhatsApp
                 </a>
               </Button>
@@ -52,5 +59,5 @@ export function UrgentBanner() {
         </AnimatedSection>
       </div>
     </section>
-  )
+  );
 }
