@@ -8,6 +8,12 @@ import { Footer } from "@/components/footer"
 const Services = dynamic(() => import("@/components/services").then(mod => mod.Services), {
   loading: () => <div className="py-20 bg-slate-50" />,
 })
+const ExCertification = dynamic(
+  () => import("@/components/ex-certification").then((mod) => mod.ExCertification),
+  {
+    loading: () => <div className="py-20 bg-slate-50" />,
+  }
+)
 const UrgentBanner = dynamic(() => import("@/components/urgent-banner").then(mod => mod.UrgentBanner))
 const Locations = dynamic(() => import("@/components/locations").then(mod => mod.Locations), {
   loading: () => <div className="py-20" />,
@@ -29,6 +35,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <ExCertification />
       <UrgentBanner />
       <Locations />
       <ABBPartner />

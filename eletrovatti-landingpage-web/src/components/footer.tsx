@@ -9,6 +9,8 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#sobre", label: "Sobre Nós" },
+  { href: "#servicos", label: "Serviços" },
+  { href: "#certificacao-ex", label: "Certificação Ex" },
   { href: "#unidades", label: "Unidades" },
   { href: "#orcamento", label: "Orçamento" },
   { href: "#contato", label: "Contato" },
